@@ -1,0 +1,73 @@
+{
+  "name": "child-ipc",
+  "version": "0.0.1",
+  "description": "A typed, Electron-style IPC interface to facilitate communication between the main process and a child process in Node.js (including, but not limited to, Electron apps).",
+  "author": "Maciej Krawczyk",
+  "homepage": "https://github.com/mckravchyk/child-ipc",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mckravchyk/child-ipc"
+  },
+  "license": "MIT",
+  "main": "./dist/child-ipc.common.js",
+  "module": "./dist/child-ipc.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/child-ipc.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/child-ipc.common.js"
+      }
+    }
+  },
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "lint": "eslint src test",
+    "check-types": "tsc --noemit",
+    "test": "npx jest --verbose",
+    "check": "npm run lint; npm run check-types && npm run test",
+    "build": "npx rollup -c",
+    "prepublish": "npm run check && npm run build"
+  },
+  "files": [
+    "dist/",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "ipc",
+    "child",
+    "process",
+    "child_process",
+    "node",
+    "electron"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/preset-typescript": "^7.18.6",
+    "@mckravchyk/event-emitter": "^1.0.0",
+    "@types/jest": "^29.5.3",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "babel-jest": "^29.6.1",
+    "eslint": "^8.45.0",
+    "eslint-config-mckravchyk": "^1.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.2.3",
+    "jest": "^29.6.1",
+    "jest-environment-jsdom": "^29.7.0",
+    "rollup": "^4.6.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.4.0",
+    "typescript": "^5.3"
+  },
+  "dependencies": {
+    "external-promise": "^1.1.0"
+  }
+}
