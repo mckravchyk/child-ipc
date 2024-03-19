@@ -1,6 +1,6 @@
 {
   "name": "child-ipc",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A typed, Electron-style IPC interface to facilitate communication between the main process and a child process in Node.js (including, but not limited to, Electron apps).",
   "author": "Maciej Krawczyk",
   "homepage": "https://github.com/mckravchyk/child-ipc",
